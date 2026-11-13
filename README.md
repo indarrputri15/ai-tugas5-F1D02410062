@@ -19,7 +19,7 @@ Topik yang dipilih adalah **Sistem Pakar Troubleshooting Gangguan Wi-Fi**. Siste
 
 ### Bahasa dan versi
 
-- Python 3.x
+- Python 3.13.13
 - Tidak membutuhkan library eksternal.
 
 ## 4. Sumber Pengetahuan
@@ -123,107 +123,44 @@ periksa koneksi modem dan router
 
 ---
 
-## 6. Metode Inferensi: Forward Chaining
+## 6. Metode Forward Chaining
 
-Forward Chaining adalah metode penalaran yang dimulai dari **fakta awal**, kemudian mencari aturan yang syaratnya terpenuhi. Jika sebuah aturan terpenuhi, bagian THEN ditambahkan sebagai fakta baru. Proses diulangi sampai tidak ada aturan baru yang dapat dijalankan.
+Forward Chaining adalah metode penalaran yang dimulai dari **fakta awal**, kemudian mencari aturan yang seluruh kondisinya terpenuhi. Jika suatu aturan terpenuhi, bagian THEN ditambahkan sebagai fakta baru. Proses tersebut diulangi sampai tidak ada aturan baru yang dapat dijalankan.
 
-Pseudocode sederhana:
+Pada program ini, proses Forward Chaining dilakukan dengan langkah berikut:
 
 ```text
-memori = fakta awal
-
-ULANGI:
-    cari aturan yang semua syaratnya ada di memori
-    dan hasilnya belum ada di memori
-
-    jika tidak ada:
-        berhenti
-
-    jalankan aturan
-    tambahkan hasil THEN ke memori
-    catat aturan sebagai alasan
+1. Masukkan fakta awal dari pengguna ke dalam memori.
+2. Cari aturan yang semua kondisinya terdapat di dalam memori.
+3. Jika aturan ditemukan dan hasilnya belum ada, jalankan aturan tersebut.
+4. Tambahkan hasil THEN sebagai fakta baru.
+5. Simpan aturan yang digunakan sebagai alasan.
+6. Ulangi proses sampai tidak ada aturan yang dapat dijalankan.
 ```
+
+Secara sederhana, alur penalarannya adalah:
+
+```text
+Fakta awal
+    ↓
+Cari aturan yang terpenuhi
+    ↓
+Jalankan aturan
+    ↓
+Tambahkan fakta baru
+    ↓
+Cari aturan berikutnya
+    ↓
+Tidak ada aturan baru
+    ↓
+Berhenti
+```
+
+Metode ini digunakan karena sesuai dengan karakteristik sistem yang menerima fakta dari pengguna kemudian menghasilkan kesimpulan secara bertahap berdasarkan aturan IF-THEN yang tersedia.
 
 ### Contoh perhitungan manual
 
-Fakta awal:
-
-```text
-wifi terhubung
-tidak ada internet
-semua perangkat tidak bisa internet
-ip router 0.0.0.0
-```
-
-#### Siklus 1
-
-R1:
-
-```text
-IF wifi terhubung
-AND tidak ada internet
-THEN koneksi internet bermasalah
-```
-
-Karena kedua fakta tersedia, R1 aktif.
-
-Fakta baru:
-
-```text
-koneksi internet bermasalah
-```
-
-#### Siklus 2
-
-R2:
-
-```text
-IF koneksi internet bermasalah
-AND semua perangkat tidak bisa internet
-THEN kemungkinan masalah router atau modem
-```
-
-Kedua syarat tersedia.
-
-Fakta baru:
-
-```text
-kemungkinan masalah router atau modem
-```
-
-#### Siklus 3
-
-R3:
-
-```text
-IF kemungkinan masalah router atau modem
-AND ip_router 0.0.0.0
-THEN periksa koneksi modem dan router
-```
-
-Kedua syarat tersedia.
-
-Fakta baru:
-
-```text
-periksa koneksi modem dan router
-```
-
-#### Siklus 4
-
-Tidak ada aturan baru yang dapat dijalankan.
-
-Program berhenti.
-
-Kesimpulan:
-
-```text
-koneksi internet bermasalah
-kemungkinan masalah router atau modem
-periksa koneksi modem dan router
-```
-
----
+Contoh perhitungan berikut menunjukkan bagaimana fakta awal dapat menghasilkan kesimpulan melalui beberapa aturan secara berantai.
 
 ## 7. Kasus Uji
 
@@ -231,7 +168,7 @@ Pengujian dilakukan menggunakan tiga kasus untuk mengetahui apakah sistem dapat 
 
 ### Kasus 1 — Gangguan Internet pada Semua Perangkat
 
-[Kasus 1](screenshot/kasus 1.png)
+![Kasus 1](screenshot/kasus 1.png)
 
 **Deskripsi kasus:**
 
@@ -282,17 +219,11 @@ Dengan demikian, fakta baru yang dihasilkan oleh R1 digunakan kembali sebagai fa
 - periksa koneksi modem dan router
 ```
 
-Simpan screenshot hasil pengujian sebagai:
-
-```text
-screenshot/kasus1.png
-```
-
 ---
 
 ### Kasus 2 — Sinyal Wi-Fi Lemah
 
-[Kasus 2](screenshot/kasus 2.png)
+![Kasus 2](screenshot/kasus 2.png)
 
 **Deskripsi kasus:**
 
@@ -335,17 +266,11 @@ Dengan demikian, sistem tidak hanya menggunakan fakta yang diberikan pengguna, t
 - disarankan mendekat ke router
 ```
 
-Simpan screenshot hasil pengujian sebagai:
-
-```text
-screenshot/kasus 2.png
-```
-
 ---
 
 ### Kasus 3 — Tidak Menghasilkan Kesimpulan
 
-[Kasus 3](screenshot/kasus 3.png)
+![Kasus 3](screenshot/kasus 3.png)
 
 **Deskripsi kasus:**
 
@@ -381,36 +306,13 @@ yang diberikan dan aturan yang tersedia.
 
 Kasus ini digunakan untuk menguji kondisi ketika **tidak terdapat aturan yang dapat dijalankan**, sehingga sistem dapat berhenti dengan benar tanpa menghasilkan diagnosis yang tidak didukung oleh fakta.
 
-Simpan screenshot hasil pengujian sebagai:
-
-```text
-screenshot/kasus3.png
-```
-
-## 8. Screenshot
-
-Setelah menjalankan program, ambil minimal tiga screenshot:
-
-1. Kasus 1 - menghasilkan kesimpulan.
-2. Kasus 2 - menghasilkan kesimpulan.
-3. Kasus 3 - tidak menghasilkan kesimpulan.
-
-
-[Kasus 1](screenshot/kasus1.png)
-
-[Kasus 2](screenshot/kasus2.png)
-
-[Kasus 3](screenshot/kasus3.png)
-
----
-
-## 9. Batas Keberlakuan
+## 8. Batas Keberlakuan
 
 Basis pengetahuan sistem ini dirangkum dari dokumentasi resmi Microsoft Support dan TP-Link Support mengenai troubleshooting Wi-Fi dan router. Sistem ditujukan untuk membantu pengguna Windows atau jaringan Wi-Fi rumah dalam mengidentifikasi beberapa pola gangguan dasar berdasarkan fakta yang diberikan. Sistem tidak mencakup seluruh kemungkinan penyebab gangguan jaringan dan hasilnya hanya merupakan saran awal untuk troubleshooting, bukan diagnosis teknis atau keputusan akhir. Kondisi perangkat, model router, konfigurasi jaringan, dan layanan ISP dapat menyebabkan hasil nyata berbeda dari kesimpulan sistem.
 
 ---
 
-## 10. Penggunaan AI
+## 9. Penggunaan AI
 
 AI digunakan sebagai alat bantu dalam proses pengerjaan tugas, terutama untuk:
 
@@ -421,9 +323,3 @@ AI digunakan sebagai alat bantu dalam proses pengerjaan tugas, terutama untuk:
 Basis aturan tetap disusun berdasarkan sumber resmi yang dicantumkan pada bagian sumber. Program kemudian diuji dengan beberapa kasus untuk memastikan proses Forward Chaining berjalan sesuai aturan.
 
 ---
-
-## 11. Kesimpulan
-
-Sistem yang dibuat merupakan sistem pakar sederhana berbasis aturan menggunakan metode Forward Chaining. Basis pengetahuan dipisahkan dari mesin inferensi dalam file `kb_wifi.json`. Program membaca aturan tersebut, menerima fakta dari pengguna, menjalankan aturan secara bertahap, menghasilkan fakta baru, dan menampilkan kesimpulan beserta aturan yang menjadi alasannya.
-
-Sistem berhasil menunjukkan proses penalaran berantai, yaitu hasil suatu aturan dapat menjadi kondisi untuk aturan berikutnya. Sistem juga dapat menangani kasus ketika tidak ada aturan yang terpenuhi.
