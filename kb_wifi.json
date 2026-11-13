@@ -1,0 +1,54 @@
+{
+  "judul": "Sistem Pakar Troubleshooting Gangguan Wi-Fi",
+  "metode": "Forward Chaining",
+  "batas": "Basis pengetahuan ini dirangkum dari dokumentasi resmi Microsoft Support dan TP-Link mengenai pemecahan masalah koneksi Wi-Fi dan router. Sistem hanya mencakup beberapa pola gangguan yang direpresentasikan oleh aturan di file ini, terutama koneksi tanpa internet, masalah pada router/modem, sinyal lemah, koneksi tidak stabil, dan masalah adaptor Wi-Fi. Hasil sistem merupakan saran awal untuk troubleshooting, bukan diagnosis teknis atau keputusan akhir.",
+  "sumber": {
+    "S1": {
+      "judul": "Memperbaiki masalah koneksi Wi-Fi di Windows",
+      "penerbit": "Microsoft Support",
+      "url": "https://support.microsoft.com/id-id/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows",
+      "diakses" : "9 November 2026"
+    },
+    "S2": {
+      "judul": "Why cannot I access the Internet after installed the TP-Link router?",
+      "penerbit": "TP-Link Support",
+      "url": "https://www.tp-link.com/id/support/faq/833/",
+      "diakses" : "9 November 2026"
+      
+    },
+    "S3": {
+      "judul": "TP-Link Router Not Connecting to Internet: How to Troubleshoot and Fix",
+      "penerbit": "TP-Link Support",
+      "url": "https://www.tp-link.com/id/support/faq/1556/",
+      "diakses" : "9 November 2026"
+     
+    },
+    "S4": {
+      "judul": "Wi-Fi dan tata letak rumah Anda",
+      "penerbit": "Microsoft Support",
+      "url": "https://support.microsoft.com/id-id/windows/experience/connectivity-networking/wi-fi-and-your-home-layout",
+      "diakses" : "9 November 2026"
+     
+    }
+  },
+  "aturan": [
+    {"id": "R1", "jika": ["wifi terhubung", "tidak ada internet"], "mode": "dan", "maka": "koneksi internet bermasalah","sumber": "S1"},
+    {"id": "R2", "jika": ["koneksi internet bermasalah", "semua perangkat tidak bisa internet"], "mode": "dan", "maka": "kemungkinan masalah router atau modem","sumber": "S1"},
+    {"id": "R3", "jika": ["kemungkinan masalah router atau modem","ip router 0.0.0.0"], "mode": "dan", "maka": "periksa koneksi modem dan router", "sumber": "S2"},
+    {"id": "R4", "jika": ["wifi lambat","sinyal lemah"], "mode": "dan", "maka": "kualitas sinyal buruk", "sumber": "S1"},
+    {"id": "R5", "jika": ["kualitas sinyal buruk"], "mode": "dan", "maka": "disarankan mendekat ke router", "sumber": "S4"},
+    {"id": "R6", "jika": ["koneksi sering terputus"], "mode": "dan", "maka": "koneksi tidak stabil","sumber": "S1"},
+    {"id": "R7", "jika": ["koneksi tidak stabil"], "mode": "dan", "maka": "periksa pengaturan daya adaptor wifi", "sumber": "S1"},
+    {"id": "R8", "jika": ["wifi tidak terdeteksi"], "mode": "dan", "maka": "periksa adaptor wifi dan sakelar wifi", "sumber": "S1"}],
+  
+    "pertanyaan": [
+    {"fakta": "wifi terhubung","teks": "Apakah perangkat terhubung ke Wi-Fi?"},
+    {"fakta": "tidak ada internet","teks": "Apakah Wi-Fi terhubung tetapi tidak ada akses internet?"},
+    {"fakta": "semua perangkat tidak bisa internet", "teks": "Apakah semua perangkat yang terhubung ke jaringan juga tidak bisa mengakses internet?"},
+    {"fakta": "ip_router 0.0.0.0", "teks": "Apakah IP Internet/WAN router menunjukkan 0.0.0.0?"},
+    {"fakta": "wifi lambat","teks": "Apakah koneksi Wi-Fi terasa lambat?"},
+    {"fakta": "sinyal lemah", "teks": "Apakah kekuatan sinyal Wi-Fi lemah?"},
+    {"fakta": "koneksi sering terputus", "teks": "Apakah koneksi Wi-Fi sering terputus?"},
+    {"fakta": "wifi tidak terdeteksi", "teks": "Apakah jaringan/opsi Wi-Fi tidak terdeteksi atau tidak muncul?"}
+  ]
+}
