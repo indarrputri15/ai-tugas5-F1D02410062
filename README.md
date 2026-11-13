@@ -166,7 +166,7 @@ Contoh perhitungan berikut menunjukkan bagaimana fakta awal dapat menghasilkan k
 
 Pengujian dilakukan menggunakan tiga kasus untuk mengetahui apakah sistem dapat menerapkan metode **Forward Chaining** sesuai dengan fakta yang diberikan oleh pengguna. Dua kasus menghasilkan kesimpulan, sedangkan satu kasus tidak menghasilkan kesimpulan karena tidak ada aturan yang terpenuhi.
 
-### Kasus 1 — Gangguan Internet pada Semua Perangkat
+### Kasus 1: Gangguan Internet pada Semua Perangkat
 
 ![Kasus 1](screenshoot/kasus%201.png)
 
@@ -221,7 +221,7 @@ Dengan demikian, fakta baru yang dihasilkan oleh R1 digunakan kembali sebagai fa
 
 ---
 
-### Kasus 2 — Sinyal Wi-Fi Lemah
+### Kasus 2: Sinyal Wi-Fi Lemah
 
 ![Kasus 2](screenshoot/kasus%202.png)
 
@@ -268,7 +268,7 @@ Dengan demikian, sistem tidak hanya menggunakan fakta yang diberikan pengguna, t
 
 ---
 
-### Kasus 3 — Tidak Menghasilkan Kesimpulan
+### Kasus 3: Tidak Menghasilkan Kesimpulan
 
 ![Kasus 3](screenshoot/kasus%203.png)
 
@@ -316,8 +316,8 @@ Basis pengetahuan sistem ini dirangkum dari dokumentasi resmi Microsoft Support 
 
 AI digunakan sebagai alat bantu dalam proses pengerjaan tugas, terutama untuk:
 
-- membantu memahami materi sistem pakar dan Forward Chaining;
-- membantu melakukan pengecekan logika kode;
+- membantu memahami materi sistem pakar dan Forward Chaining.
+- membantu melakukan pengecekan logika kode.
 - membantu merapikan dokumentasi README.
 
 Basis aturan tetap disusun berdasarkan sumber resmi yang dicantumkan pada bagian sumber. Program kemudian diuji dengan beberapa kasus untuk memastikan proses Forward Chaining berjalan sesuai aturan.
