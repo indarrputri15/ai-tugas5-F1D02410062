@@ -24,7 +24,7 @@ Topik yang dipilih adalah **Sistem Pakar Troubleshooting Gangguan Wi-Fi**. Siste
 
 ## 4. Sumber Pengetahuan
 
-### S1 — Microsoft Support
+### S1: Microsoft Support
 
 **Judul:** Memperbaiki masalah koneksi Wi-Fi di Windows  
 **Penerbit:** Microsoft Support  
@@ -33,7 +33,7 @@ Topik yang dipilih adalah **Sistem Pakar Troubleshooting Gangguan Wi-Fi**. Siste
 
 Sumber ini digunakan untuk aturan tentang Wi-Fi terhubung tetapi tidak ada internet, pengujian pada perangkat lain, sinyal/koneksi, koneksi yang sering terputus, adaptor Wi-Fi, dan langkah troubleshooting lainnya.
 
-### S2 — TP-Link Support
+### S2: TP-Link Support
 
 **Judul:** Why cannot I access the Internet after installed the TP-Link router?  
 **Penerbit:** TP-Link Support  
@@ -42,7 +42,7 @@ Sumber ini digunakan untuk aturan tentang Wi-Fi terhubung tetapi tidak ada inter
 
 Sumber ini digunakan terutama untuk kondisi IP WAN router `0.0.0.0` dan pemeriksaan koneksi modem/router.
 
-### S3 — TP-Link Support
+### S3: TP-Link Support
 
 **Judul:** TP-Link Router Not Connecting to Internet: How to Troubleshoot and Fix  
 **Penerbit:** TP-Link Support  
@@ -51,7 +51,7 @@ Sumber ini digunakan terutama untuk kondisi IP WAN router `0.0.0.0` dan pemeriks
 
 Sumber ini digunakan sebagai referensi tambahan mengenai pemeriksaan koneksi modem/router dan restart perangkat jaringan.
 
-### S4 — Microsoft Support
+### S4: Microsoft Support
 
 **Judul:** Wi-Fi dan tata letak rumah Anda  
 **Penerbit:** Microsoft Support  
