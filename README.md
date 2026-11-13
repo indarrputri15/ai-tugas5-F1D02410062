@@ -168,7 +168,7 @@ Pengujian dilakukan menggunakan tiga kasus untuk mengetahui apakah sistem dapat 
 
 ### Kasus 1 — Gangguan Internet pada Semua Perangkat
 
-![Kasus 1](screenshot/kasus 1.png)
+![Kasus 1](screenshoot/kasus%201.png)
 
 **Deskripsi kasus:**
 
@@ -223,7 +223,7 @@ Dengan demikian, fakta baru yang dihasilkan oleh R1 digunakan kembali sebagai fa
 
 ### Kasus 2 — Sinyal Wi-Fi Lemah
 
-![Kasus 2](screenshot/kasus 2.png)
+![Kasus 2](screenshoot/kasus%202.png)
 
 **Deskripsi kasus:**
 
@@ -270,7 +270,7 @@ Dengan demikian, sistem tidak hanya menggunakan fakta yang diberikan pengguna, t
 
 ### Kasus 3 — Tidak Menghasilkan Kesimpulan
 
-![Kasus 3](screenshot/kasus 3.png)
+![Kasus 3](screenshoot/kasus%203.png)
 
 **Deskripsi kasus:**
 
